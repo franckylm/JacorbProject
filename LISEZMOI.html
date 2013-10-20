@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Lab1 - Application CORBA</TITLE>
+</HEAD>
+<BODY>
+<H1>equipe04-log720-A13-lab1</H1>
+<p>Ce fichier détaille la procédure d'installation et d'exécution de notre projet.</p>
+<p>Le projet est livré avec différents scripts maven, bash et DOS qui permettent
+  de le compiler et l'exécuter sur les trois plate-formes supportées dans les
+  laboratoires du département, soit PC sous MS Windows (XP ou 7), PC sous Linux
+  et Mac sous MacOS X.</p>
+ 
+<h2>Pré-requis</h2>
+<p>Le projet tel que livré ici est presque autonome. Les seuls prérequis sont que:</p>
+<ul>
+  <li>un compilateur java doit être sur le chemin d'accès ("path");</li>
+  <li>l'outil Maven doit être sur le chemin d'accès ("path");</li>
+  <li>une distribution de jacorb bien configurée doit être accessible.</li>
+</ul>
+
+<h2>Description du projet</h2>
+<p> Le but du projet est de développer un tout nouveau système 
+policier permettant aux patrouilleurs d'obtenir le dossier d'un suspect à partir de leur voiture. </p>
+<p>	</p>
+
+<h2>Particularités du projet</h2>
+
+<p>Ce projet  exploite les modules maven, et sépare l'application en quatre
+  modules:</p>
+<ul>
+  <li><b><u>idl</u> : </b>  module contenant uniquement l'IDL;</li>
+  <li><b><u>server</u> : </b> module contenant uniquement l'application serveur et le <em>servant</em>;</li>
+  <li><b><u>client-poste</u> : </b>module contenant uniquement le client localisé au poste de police.</li>
+  <li><b><u>client-voiture</u> : </b>module contenant uniquement le client localisé dans les voitures de police.</li>
+</ul>
+<p>Les modules server, client-poste et client-voiture dépendent du module IDL, et cette dépendance
+  est définie au niveau de leurs POM respectifs.</p>
+
+<h2>Persistance des objets</h2>
+<p>Les objets sérialisés sont sauvegardés dans des fichiers d'extension <tt><b>.ser</b></tt> et localisés dans le
+dans le dossier <tt><b>persist</b></tt> situé à la racine du projet</p>
+  
+<h2>Compilation de l'exemple en ciblant jacorb</h2>
+<ul>
+  <li>se déplacer à l'endroit où se trouve le fichier pom.xml dans cette
+    archive (en principe au même niveau que les présentes directives);</li>
+  <li>lancer <tt><b>mvn compile</b></tt> (par défaut, le compilateur IDL est
+    exécuté, puis l'ensemble du code java est compilé).</li>  
+</ul>
+  
+<h2>Exécution de l'exemple avec jacorb</h2>
+<ul>
+  <li>ouvrir trois coquilles (shell) selon votre plate-forme (DOS pour Windows,
+    bash pour Unix, Linux et MacOS);
+  <li>se déplacer (dans nos quatre coquilles) dans le répertoire qui contient les
+    scripts pour votre plate-forme (<tt><b>scripts/dos</b></tt> pour Windows,
+    <tt><b>scripts/bash</b></tt> pour Unix, Linux et MacOS);</li>
+  <li>lancer <tt><b>naming</b></tt> dans une première coquille;</li>
+  <li>lancer <tt><b>server</b></tt> dans une seconde coquille;</li>
+  <li>lancer <tt><b>client-poste</b></tt> dans une troisième coquille;</li>
+  <li>lancer <tt><b>client-voiture</b></tt> dans une quatrième coquille;</li>
+</ul>
+
+<h2>Intégration avec eclipse et m2e</h2>
+<p>Ce projet doit être importé dans eclipse comme <strong>projet maven</strong>.
+  Le plugin maven pour eclipse, m2e, indique une erreur de gestion du plugin
+<tt>idl-maven-plugin</tt>. Ça fonctionne quand même.</p>
+
+<p>Pour que ce projet compile correctement dans eclipse, vous devez:
+<ul>
+  <li>ajouter le projet <tt>idl</tt> dans le &quot;build path&quot; des
+    projets <tt>server</tt>, <tt>client-poste</tt> et <tt>client-voiture</tt>;</li>
+  <li>ajouter des répertoires sources liés (&quot;Linked sources&quot;) à 
+    <tt>idl/target/generated-sources/idl</tt> dans ces trois projets.</li>
+</ul></p>    
+<p>Ces deux modifications s'effectuent via le &quot;build path&quot; eclipse.</p>
+
+<p>Par equipe04-log720-A13-lab1. <br>
+École de technologie supérieure<br>
+MÀJ 2013-Oct-14</p>
+</BODY>
+</HTML>  

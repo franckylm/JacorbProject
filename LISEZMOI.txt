@@ -1,0 +1,11 @@
+1. Lancer le goal "mvn compile" à la racine du projet avec Maven configuré comme pour l'exemple 1 du laboratoire 1
+
+2. Ouvrir trois shell Jacorb au minimum avec la configuration prescrite pour exécuter l'exemple 1 du laboratoire 1
+
+3. Se déplacer dans le répertoire script/dos avec chacun des shell
+
+4. Exécuter "naming.bat" dans un shell
+
+5. Exécuter "server.bat" dans un autre shell
+
+6. "client-poste.bat" et "client-voiture.bat" peuvent être executer sur deux shell différents en même temps ou séparément.
